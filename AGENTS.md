@@ -39,7 +39,7 @@ bun run glyphs   # rebuild Obsidian Sans (needs Python 3 + fonttools in .tools/p
 ## Releasing
 
 1. Bump `version` in `package.json` and add a `## x.y.z` section to `CHANGELOG.md`. Run `bun run build` and commit `dist/`.
-2. Update the pinned tag in the install lines of `README.md` and `llms.txt` (`#vx.y.z`).
+2. Update the pinned tag in the install lines of `README.md` and `llms.txt` (`#vx.y.z`), and the version badge at the top of `README.md`.
 3. Commit, push, and wait for CI to pass on `main`.
 4. Publish the release on that commit, with its CHANGELOG section as the notes:
    `gh release create vx.y.z --target <commit> --title vx.y.z --notes-file <notes>`.

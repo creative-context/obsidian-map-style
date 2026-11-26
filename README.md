@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.3.0-2D72D2?labelColor=1A1D21" alt="Version 0.3.0">
+  <img src="https://img.shields.io/badge/version-0.3.3-2D72D2?labelColor=1A1D21" alt="Version 0.3.3">
   <img src="https://img.shields.io/badge/license-MIT-238551?labelColor=1A1D21" alt="MIT licence">
   <img src="https://img.shields.io/badge/maplibre-6-8A8F98?labelColor=1A1D21" alt="MapLibre 6">
   <img src="https://img.shields.io/badge/no_API_key-self--hosted-6FA6E8?labelColor=1A1D21" alt="No API key, self-hosted">
@@ -58,10 +58,10 @@ It is the map companion to the [Obsidian theme for Astryx](https://github.com/cr
 ## Getting started
 
 ```bash
-npm install github:creative-context/obsidian-map-style#v0.3.2 maplibre-gl pmtiles
+npm install github:creative-context/obsidian-map-style#v0.3.3 maplibre-gl pmtiles
 ```
 
-`#v0.3.2` pins a [release](https://github.com/creative-context/obsidian-map-style/releases); without it you get the tip of `main`.
+`#v0.3.3` pins a [release](https://github.com/creative-context/obsidian-map-style/releases); without it you get the tip of `main`.
 
 Serve the package's `assets/` folder (label glyphs and sprites) from your app, for example by copying `node_modules/obsidian-map-style/assets` into your public directory. Then:
 
@@ -167,7 +167,7 @@ CJK labels are drawn by the browser from local fonts, as MapLibre does by defaul
 
 ## Known issues
 
-- Protomaps' style asks for a few icons its own sprite sheet doesn't have, such as `townhall`, and MapLibre logs a warning. The label still draws. The demo answers with a transparent placeholder on `styleimagemissing`.
+- Protomaps' style asks for a few icons its own sprite sheet doesn't have, such as `townhall`, and MapLibre logs a warning. The label still draws. The demo answers with a transparent placeholder through `setMissingStyleImageResolver`; since MapLibre 6 the `styleimagemissing` event only notifies.
 
 ## Develop
 

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.3
+
+Maintenance. The style itself is unchanged.
+
+- The demo and tests run on MapLibre GL 6.19. The peer dependency stays `>=6.4.1`.
+- Development dependencies updated: Vite 8.4, pmtiles 4.5, React 19.3, Astryx core 0.7.17 and the current Obsidian theme.
+- CI uses `actions/checkout` v7, `upload-pages-artifact` v5 and `deploy-pages` v5, which run on Node 24.
+- README: the version badge is current, and "Known issues" names `setMissingStyleImageResolver`, which the demo has used since 0.3.1.
+
 ## 0.3.2
 
 - The `maplibre-gl` peer dependency is now `>=6.4.1`. Versions before 6.4.1, 5.x included, carry a published XSS advisory (GHSA-jrc7-96c5-q579); the package manager now warns instead of the style quietly accepting them. The style itself is unchanged.

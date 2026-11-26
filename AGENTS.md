@@ -13,6 +13,7 @@ This is the **Obsidian map style**: a dark MapLibre GL basemap on Protomaps v4 t
 - `assets/sprites/` — Protomaps' sprite sheet, fetched by `scripts/fetch-assets.mjs` and turned to greyscale by `scripts/grey-sprites.py`. Run both, in that order; a coloured sprite puts colour on the basemap that is not data.
 - `demo/` — the demo; `demo/public/tiles/` holds the city extracts and the world overview.
 - `test/style.test.ts` — the style's contract.
+- `test/demo.spec.ts` — the demo in a browser (Playwright). Change a control in the demo, change it here.
 - `.tools/` — downloaded build tools (pmtiles CLI, Python env). Gitignored.
 
 ## Commands
@@ -20,6 +21,7 @@ This is the **Obsidian map style**: a dark MapLibre GL basemap on Protomaps v4 t
 ```bash
 bun install
 bun run test     # contrast, opacity, hand-off, glyph coverage
+bun run test:demo  # Playwright: every demo control at desktop, laptop and phone size; screenshots in test-results/demo/
 bun run build    # src → dist; run after any change to src/
 bun run demo     # http://localhost:5173 — ?city=madrid|milan|mexico-city, view in the URL hash
 bun run glyphs   # rebuild Obsidian Sans (needs Python 3 + fonttools in .tools/pyenv)

@@ -73,10 +73,16 @@ body {
   flex-wrap: wrap;
   gap: var(--spacing-2);
 }
+/* The key sits in a fixed column, so the three switches line up. */
 .demo-toggle {
-  display: flex;
+  display: grid;
+  grid-template-columns: 14px auto;
+  justify-items: start;
   align-items: center;
   gap: var(--spacing-3);
+}
+.demo-toggle .demo-key {
+  justify-self: center;
 }
 .demo-key {
   flex-shrink: 0;
@@ -150,9 +156,10 @@ body {
 }
 
 @media (max-width: 640px) {
+  /* Above the attribution, which is a licence condition and stays uncovered. */
   .demo-panel {
     top: auto;
-    bottom: var(--spacing-2);
+    bottom: 44px;
     left: var(--spacing-2);
     right: var(--spacing-2);
     width: auto;

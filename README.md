@@ -175,6 +175,7 @@ CJK labels are drawn by the browser from local fonts, as MapLibre does by defaul
 bun install
 bun run demo          # Madrid, Milan and Mexico City at http://localhost:5173
 bun run test
+bun run test:demo     # the demo in a browser: every control, at three sizes, with screenshots
 bun run build         # src → dist
 bun run glyphs        # rebuild Obsidian Sans (needs Python 3 with fonttools; see scripts/)
 ```

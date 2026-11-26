@@ -13,8 +13,13 @@ const assets = resolve(root, '../assets')
  * demo's, so they are not duplicated into demo/public.
  */
 function basemapAssets(): Plugin {
+  let outDir = resolve(root, 'dist')
   return {
     name: 'basemap-assets',
+    configResolved(config) {
+      // --outDir moves the build (the browser test builds into test-results/).
+      outDir = resolve(root, config.build.outDir)
+    },
     configureServer(server) {
       server.middlewares.use('/basemap', (req, res, next) => {
         const file = join(assets, decodeURIComponent((req.url ?? '').split('?')[0]))
@@ -23,9 +28,9 @@ function basemapAssets(): Plugin {
       })
     },
     closeBundle() {
-      cpSync(assets, resolve(root, 'dist/basemap'), { recursive: true })
+      cpSync(assets, resolve(outDir, 'basemap'), { recursive: true })
       // Publish the repository's llms.txt with the demo, from the one source.
-      cpSync(resolve(root, '../llms.txt'), resolve(root, 'dist/llms.txt'))
+      cpSync(resolve(root, '../llms.txt'), resolve(outDir, 'llms.txt'))
     },
   }
 }

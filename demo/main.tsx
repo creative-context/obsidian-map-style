@@ -149,7 +149,15 @@ function Demo() {
     m.setMissingStyleImageResolver(placeholder(m));
     m.once('style.load', () => addOverlays(m, startCity, {points: true, route: true, district: true}));
     map.current = m;
-    return () => m.remove();
+    // The browser test (test/demo.spec.ts) reads the map's state through this.
+    (window as unknown as {demoMap?: maplibregl.Map}).demoMap = m;
+    return () => {
+      // remove() strips the view from the URL. Put it back, so a remount (React's
+      // strict mode in development) opens on the same shared view.
+      const hash = location.hash;
+      m.remove();
+      if (hash) history.replaceState(null, '', `${location.pathname}${location.search}${hash}`);
+    };
   }, []);
 
   // A city switch swaps the style (each city is its own extract) and re-adds the data.
